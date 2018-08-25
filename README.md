@@ -7,6 +7,11 @@
 
 ## Machine Learning
 
+Types of ML-
+
+* Supervised Learning - Requires Labelled Data and Desired Output
+* Unsupervised Learning
+
 #### Basics
 
 * Schema - Different Columns/classes obtained from Data Source
@@ -30,7 +35,7 @@ Under training and evaluation settings, we can select Default Settings or Custom
 - Meterics will appear such as AUC for Binary, Confusion matrix etc.
 - Can adjust Threshold depending on Business Requirements
 
-AWS Machine learning Models are -
+#### AWS Supervised Machine learning Models are -
 
 | Models   |      Purpose      |  Example | Algorithm | Measuring Unit for Quality of Histogram |
 |----------|:-------------:|:---------|:----------------|-----------------|
