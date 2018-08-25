@@ -9,14 +9,17 @@
 
 AWS Machine learning Models are -
 
-| Models   |      Purpose      |  Example | Algorithm | Prediction Score |
+| Models   |      Purpose      |  Example | Algorithm | Measuring Unit for Quality of Histogram |
 |----------|:-------------:|:---------|:----------------|-----------------|
-| Binary Classification Model |  Predict a binary outcome (one of two possible classes) |  "Is this email spam or not spam?" |  Logistic regression | 0 - Most Likely,   1 - Unlikely |
-| Multiclass Classification Model | multiple classes (predict one of more than two outcomes) | "Is this product a book, movie, or clothing?"| multinomial logistic regression | - |
-| Regression Model | predict a numeric value. | "What price will this house sell for?" | Linear regression | - |
+| [Binary Classification Model](https://aws.amazon.com/blogs/big-data/building-a-binary-classification-model-with-amazon-machine-learning-and-amazon-redshift/) |  Predict a binary outcome (one of two possible classes) |  "Is this email spam or not spam?" |  Logistic regression | AUC(Area Under Curve) [Higher the value, better the quality] |
+| [Multiclass Classification Model](https://aws.amazon.com/blogs/big-data/building-a-multi-class-ml-model-with-amazon-machine-learning/) | multiple classes (predict one of more than two outcomes) | "Is this product a book, movie, or clothing?"| multinomial logistic regression | Confusion Matrix |
+| [Regression Model](https://aws.amazon.com/blogs/big-data/building-a-numeric-regression-model-with-amazon-machine-learning/) | predict a numeric value. | "What price will this house sell for?" | Linear regression | RMSE [Lower the value, better the quality] |
 
 Ref - https://docs.aws.amazon.com/machine-learning/latest/dg/types-of-ml-models.html
 
+ 0 - Most Likely
+ 1 - Unlikely 
+ 
 * Confusion Matrix -
 
 The confusion matrix gives some insights about the performance of the model as a way to visualize the accuracy of multiclass classification predictive models. The confusion matrix illustrates in a table the number or percentage of correct and incorrect predictions for each class by comparing an observation’s predicted class and its true class.
@@ -36,8 +39,6 @@ If the value is near to 1 or above 0.5, then the binary model prediction is corr
 * Trade Off Threshold 
 
 The trade off threshold value provides a business approach to alter the false positives and negatives based on a business descision from the output of the outcome graph.
-
-Ref - https://aws.amazon.com/blogs/big-data/building-a-multi-class-ml-model-with-amazon-machine-learning/
 
 #### Batch Prediction -
 
