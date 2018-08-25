@@ -7,6 +7,29 @@
 
 ## Machine Learning
 
+#### Basics
+
+* Schema - Different Columns/classes obtained from Data Source
+* Target - The Class/Column to select for ML to learn and do analysis from
+* Row Identifier (Optional) 
+
+
+#### Use Data Source as 
+
+* Create (train) an ML Model
+* Evaluate an ML model
+* Generate Batch predictions
+
+##### Create (train) an ML Model -
+
+Under training and evaluation settings, we can select Default Settings or Custom Settings -> Create a ML Model
+
+##### Evaluate an ML model -
+
+- Automatically gets created and generates Histogram after the create (train) ML model is created
+- Meterics will appear such as AUC for Binary, Confusion matrix etc.
+- Can adjust Threshold depending on Business Requirements
+
 AWS Machine learning Models are -
 
 | Models   |      Purpose      |  Example | Algorithm | Measuring Unit for Quality of Histogram |
@@ -54,8 +77,3 @@ Here the Best Answer will be 0 or 1, depending upon the threshold value set by u
 #### Real Time Predictions
 
 Under Evaluations -> Try-Real Time Predictions -> Paste a Record
-
-
-
-
-
