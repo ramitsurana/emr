@@ -5,6 +5,53 @@
 
 ## EMR
 
+#### EMR File Storage and Compression
+
+|  Algorithm/Compression Type   |      Splittable   | Compression Ratio | Compress_Decompress Speed |
+|----------|:-------------:|----------------:|--------------------|
+| GZIP |  No | High | Medium |
+| bzip2 | Yes | Very High | Slow |
+| LZO | Yes | Low | Fast |
+| Snappy | No | Low | Very Fast |
+
+
+#### HBase vs Dynamodb
+
+|  HBase   |      Dynamodb   |
+|----------|:-------------:|
+| Wide Column Store | Key-Value Store |
+| No row size restrictions | Item Size Restricted |
+| Flexible Row Key Data Types | Scalar Types |
+|Index Creation is more manual | Easier Index Creation |
+
+#### Presto
+
+Advantages -
+
+- High Concurrency , can run thousands of queries per day
+- In-memory processing
+- Low I/O and latency
+- Can run query of different types from sources such as RDBMS, NoSQL DB's & Frameworks like Hive, Stream processing & Kafka
+- No need of interpreter layer like Hive does (Tez)
+
+Disadvantages -
+
+- Not designed for OLTP
+- Joining very large (100M+) rows not possible, use Hive intead
+- Not able to perform Batch Processing
+
+#### Hadoop Encryped Shuffle
+
+It allows encryption of the MapReduce shuffle using HTTPS and with optional client authentication(HTTPS with client certificates). It includes -
+
+* Hadoop configuration for shuffling between HTTP and HTTPS
+* Re-load trust certificates across the cluster
+* Hadoop Configuration settings for specifying keystore and truststore properties
+
+For enabling the shuffle, the hadoop files need to changed as per the properties file mentioned in the link below.
+
+Ref - https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/EncryptedShuffle.html
+
 ## Machine Learning
 
 Types of ML-
