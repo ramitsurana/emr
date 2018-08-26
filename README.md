@@ -2,6 +2,7 @@
 
 * [EMR](#emr)
 * [Machine Learning](#machine-learning)
+* [Notebooks](#notebooks)
 
 ## EMR
 
@@ -42,6 +43,10 @@ Disadvantages -
 
 #### Hadoop Encryped Shuffle
 
+Data in-transit between nodes is encrypted.
+
+This process involves transferring data from node to node within the cluster, and if you want that data to be encrypted in-transit between nodes, then Hadoop encrypted shuffle has to be setup. Encrypted Shuffle capability allows encryption of the MapReduce shuffle using HTTPS. When you select the in-transit encryption checkbox in the EMR security configuration, Hadoop Encrypted Shuffle is automatically setup for you upon cluster launch.
+
 It allows encryption of the MapReduce shuffle using HTTPS and with optional client authentication(HTTPS with client certificates). It includes -
 
 * Hadoop configuration for shuffling between HTTP and HTTPS
@@ -61,11 +66,24 @@ Ref - https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapre
 - Not used for batch processing.
 - Uses In-memory Storage
 - Avoid using it for multi-user reporting with many concurrent requests
+- Spark’s four modules are MLlib, SparkSQL, Spark Streaming, and GraphX.
 
 **Note** 
 
 1. EBS volumes get deleted once EMR cluster is terminated.
 2. (D2 and I3 instance types)Instance storage can be used for HDFS if the I/O requirements of the EMR cluster are high.
+3. Once you enable encryption for a Redshift cluster upon launch, you can cannot then change it to an unencrypted cluster. You’ll have to unload the data and reload the data into a new cluster with your new encryption setting.
+
+#### EMR Encryption
+
+- LUKS Encryption
+
+**Condition**
+
+We need to use EMR with EMRFS. However, your security team requires that you both encrypt all data before sending it to S3 and that you maintain the keys.
+
+**Answer**
+Would use CSE-Custom, where you would encrypt the data before sending it to S3 and also manage the the client-side master key. The other encryption options available are: S3 Server-Side Encryption (SSE-S3), S3 manages keys for you; Server-Side Encryption with KMS–Managed Keys (SSE-KMS), S3 uses a customer master key that is managed in the Key Management Service to encrypt and decrypt the data before saving it to an S3 bucket; Client-Side Encryption with KMS-Managed Keys (CSE-KMS), the EMR cluster uses a customer master key to encrypt data before sending it to Amazon S3 for storage and to decrypt the data after it is downloaded.
 
 ## Machine Learning
 
@@ -144,3 +162,24 @@ Here the Best Answer will be 0 or 1, depending upon the threshold value set by u
 #### Real Time Predictions
 
 Under Evaluations -> Try-Real Time Predictions -> Paste a Record
+
+## Notebooks
+
+**Zeppelin**
+
+- Web based notebook 
+- Integrates with S3
+- Publish to dashboards
+- Can use scala, python, spark sql and hive sql
+- Dashboards can be shared with other users
+- Uses Spark settings on EMR
+
+**Jupyter**
+
+- Python based notebooks
+
+**D3.js**
+
+- Javascript Library 
+- Read Data from tsv, csv or json files
+- Generates HTML Tables, SVG bar charts and other dashboards etc.
