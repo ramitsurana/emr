@@ -52,6 +52,21 @@ For enabling the shuffle, the hadoop files need to changed as per the properties
 
 Ref - https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/EncryptedShuffle.html
 
+#### Library used for Kinesis Steaming
+
+- KCL(Kinesis Client Library) 
+
+### Spark
+
+- Not used for batch processing.
+- Uses In-memory Storage
+- Avoid using it for multi-user reporting with many concurrent requests
+
+**Note** 
+
+1. EBS volumes get deleted once EMR cluster is terminated.
+2. (D2 and I3 instance types)Instance storage can be used for HDFS if the I/O requirements of the EMR cluster are high.
+
 ## Machine Learning
 
 Types of ML-
