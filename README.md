@@ -39,6 +39,56 @@
 | Ganglia	| http://master-public-dns-name/ganglia/ |
 | HBase UI |	http://master-public-dns-name:16010/ |
 
+
+#### Long Running vs Transient Cluster
+
+|  Long Running Cluster   |   Transient Cluster |
+|----------|:-------------|
+| Cluster stays up and runningfor queries against HBase | Temporary Cluster  |
+| Jobs in cluster run frequently | Shouts Down after Processing |
+| Data may be large | Batch jobs when needed |
+| Keeps HDFS Data on Core Nodes | Input,Output and Code Stored in S3 |
+| Termination Protection | Easy Recovery |
+| - | Hive metastore stored in MySQL RDS |
+| - |  Reduces Costs |
+
+#### EMR Cluster Differences b/w Large Nodes, Small Cluster and Small Nodes, Large Cluster
+
+|  Large Nodes and Small Cluster   | Small Nodes and Large Cluster  |
+|----------|:-------------|
+| 500 Large Nodes | 750 small nodes  |
+| AWS recommends a small cluster with large nodes due to low maintanence | It requires High maintanence |
+
+
+#### Replication factor
+
+* Default replication factor for EMR
+
+- For a cluster of 10 nodes or more = 3
+- For a cluster of 4 - 9 nodes = 2
+- For a cluster of 3 nodes or less = 1
+
+Setting can be found in **hdfs-site.xml**
+
+** Use HDFS for high I/O requirements.**
+
+#### HDFS Capacity
+
+```
+For example, 10 nodes * 800 GB = 8 TB
+
+For a Replication Factor of 3.
+
+HDFS capacity => 8 TB/3 = 2.6 TB
+
+Comparing the Data Size and HDFS capcity, we get,
+
+Data Size => 3 TB
+HDFS Capacity => 2.6 TB
+
+Conclusion is NOT enough Space
+```
+
 #### Hue
 
 Hue UI Browser
