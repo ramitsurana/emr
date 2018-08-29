@@ -171,6 +171,14 @@ Would use CSE-Custom, where you would encrypt the data before sending it to S3 a
 
 ## Machine Learning
 
+Key concepts in greater detail:
+
+* Datasources contain metadata associated with data inputs to Amazon ML
+* ML Models generate predictions using the patterns extracted from the input data
+* Evaluations measure the quality of ML models
+* Batch Predictions asynchronously generate predictions for multiple input data observations
+* Real-time Predictions synchronously generate predictions for individual data observations
+
 Types of ML-
 
 * Supervised Learning - Requires Labelled Data and Desired Output
