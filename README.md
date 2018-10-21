@@ -106,24 +106,19 @@ Hue UI Browser
 - Livy Server is supported only in Amazon EMR version 5.9.0 and later.
 - To use the Hue Notebook for Spark, you must install Hue with Livy and Spark. 
 
-Ref - https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hue.html
-LDAP Integration - https://docs.aws.amazon.com/emr/latest/ReleaseGuide/hue-ldap.html
+* Ref - https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hue.html
+* LDAP Integration - https://docs.aws.amazon.com/emr/latest/ReleaseGuide/hue-ldap.html
 
 #### Presto
 
-Advantages -
+|  Advantages   |      Disadvantages   |
+|----------|:-------------|
+| High Concurrency , can run thousands of queries per day | Not designed for OLTP |
+| In-memory processing | Joining very large (100M+) rows not possible, use Hive intead |
+| Low I/O and latency | Not able to perform Batch Processing |
+| Can run query of different types from sources such as RDBMS, NoSQL DB's & Frameworks like Hive, Stream processing & Kafka | - |
+| No need of interpreter layer like Hive does (Tez) | - |
 
-- High Concurrency , can run thousands of queries per day
-- In-memory processing
-- Low I/O and latency
-- Can run query of different types from sources such as RDBMS, NoSQL DB's & Frameworks like Hive, Stream processing & Kafka
-- No need of interpreter layer like Hive does (Tez)
-
-Disadvantages -
-
-- Not designed for OLTP
-- Joining very large (100M+) rows not possible, use Hive intead
-- Not able to perform Batch Processing
 
 #### Hadoop Encryped Shuffle
 
@@ -179,7 +174,7 @@ Key concepts in greater detail:
 * Batch Predictions asynchronously generate predictions for multiple input data observations
 * Real-time Predictions synchronously generate predictions for individual data observations
 
-Types of ML-
+Types of ML -
 
 * Supervised Learning - Requires Labelled Data and Desired Output
 * Unsupervised Learning
